@@ -1,0 +1,12 @@
+# | \ | (_) ___| | _____ _ __| |_ 
+# |  \| | |/ _ \ |/ / _ \ '__| __|
+# | |\  | |  __/   <  __/ |  | |_ 
+# |_| \_|_|\___|_|\_\___|_|   \__|
+
+JoinTitle: "" #Title when player joins. {player} and {world} can be used. Only visible for the player self.
+JoinSubtitle: "" #Subtitle when player joins. {player} and {world} can be used. Only visible for the player self.
+JoinTitle: "" #Title when player goes to another world. {player} and {world} can be used. Only visible for the player self.
+JoinSubtitle: "" #Subtitle when player goes to another world. {player} and {world} can be used. Only visible for the player self.
+Fadein: "" #The fade-in time in seconds
+Duration: "" #Duration of Title in seconds
+Fadeout: "" #The fade-out time in seconds
