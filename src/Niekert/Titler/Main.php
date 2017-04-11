@@ -4,11 +4,11 @@ namespace Niekert\Titler;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
-use pocketmine\events\PlayerJoinEvent;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\event\Listener;
-use pocketmine\network\mcpe\protocol\SetTitlePacket;
+use pocketmine\network\protocol\SetTitlePacket;
 use pocketmine\level\Level;
 use pocketmine\event\entity\EntityLevelChangeEvent;
 
@@ -45,11 +45,12 @@ class Main extends PluginBase implements Listener{
 	public function onJoin(PlayerJoinEvent $event){
 		$temp = $event->getPlayer();
 		$player = $temp->getName();
-		$player->addTitle(str_replace(array("{player}", "{world}"), array("$player", "$this->getLevel()"), "$this->JoinTitle"), "str_replace(array("{player}", "{world}"), array("$player", "$this->getLevel()"), "$this->JoinSubtitle")", $fadeIn = $this->Fadein, $duration = $this->Duration, $fadeOut = $this->Fadeout); 
+		$player->addTitle(str_replace(array('{player}', '{world}'), array('$player', '$this->getLevel()'), $this->JoinTitle), str_replace(array('{player}', '{world}'), array($player, $this->getLevel()), $this->JoinSubtitle), $fadeIn = $this->Fadein, $duration = $this->Duration, $fadeOut = $this->Fadeout); 
 	}
 	
-	public function onJoin(PlayerJoinEvent $event){
+	public function onWorldChange(EntityLevelChangeEvent $event){
 		$temp = $event->getEntity();
 		$player = $temp->getName();
-		$player->addTitle(str_replace(array("{player}", "{world}"), array("$player", "$this->getLevel()"), "$this->Title"), "str_replace(array("{player}", "{world}"), array("$player", "$this->getLevel()"), "$this->Subtitle")", $fadeIn = $this->Fadein, $duration = $this->Duration, $fadeOut = $this->Fadeout); 
+		$player->addTitle("str_replace(array('{player}', '{world}'), array('$player', '$this->getLevel()'), $this->WorldTitle)", "str_replace(array('{player}', '{world}'), array($player, $this->getLevel()), $this->WorldSubtitle)", $fadeIn = $this->Fadein, $duration = $this->Duration, $fadeOut = $this->Fadeout); 
+	}
 }
