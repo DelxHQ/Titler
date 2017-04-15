@@ -9,6 +9,7 @@ use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\event\Listener;
 use pocketmine\network\protocol\SetTitlePacket;
+use pocketmine\level\Position;
 use pocketmine\level\Level;
 use pocketmine\event\entity\EntityLevelChangeEvent;
 
@@ -43,14 +44,13 @@ class Main extends PluginBase implements Listener{
 	}
 	
 	public function onJoin(PlayerJoinEvent $event){
-		$temp = $event->getPlayer();
-		$player = $temp->getName();
-		$player->addTitle(str_replace(array('{player}', '{world}'), array('$player', '$this->getLevel()'), $this->JoinTitle), str_replace(array('{player}', '{world}'), array($player, $this->getLevel()), $this->JoinSubtitle), $fadeIn = $this->Fadein, $duration = $this->Duration, $fadeOut = $this->Fadeout); 
+		$player = $event->getPlayer();
+		$player->addTitle(str_replace(array('{player}', '{world}'), array($player->getName(), $player->getLevel()->getName()), $this->JoinTitle), str_replace(array('{player}', '{world}'), array($player->getName(), $player->getLevel()->getName()), $this->JoinSubtitle), $fadeIn = $this->Fadein, $duration = $this->Duration, $fadeOut = $this->Fadeout); 
+		$player->addTitle("Hallo"); 
 	}
 	
 	public function onWorldChange(EntityLevelChangeEvent $event){
-		$temp = $event->getEntity();
-		$player = $temp->getName();
-		$player->addTitle("str_replace(array('{player}', '{world}'), array('$player', '$this->getLevel()'), $this->WorldTitle)", "str_replace(array('{player}', '{world}'), array($player, $this->getLevel()), $this->WorldSubtitle)", $fadeIn = $this->Fadein, $duration = $this->Duration, $fadeOut = $this->Fadeout); 
+		$player = $event->getEntity();
+		$player->sendTitle("str_replace(array('{player}', '{world}'), array('$player->getName()', '$player->getLevel()->getName()'), $this->WorldTitle)", "str_replace(array('{player}', '{world}'), array($player, $player->getLevel()->getName()), $this->WorldSubtitle)", $fadeIn = $this->Fadein, $duration = $this->Duration, $fadeOut = $this->Fadeout); 
 	}
 }
