@@ -1,6 +1,6 @@
 <?php
 	
-namespace Niekert\Titler\SendTitle;
+namespace Niekert\Titler;
 
 use pocketmine\scheduler\PluginTask;
 use pocketmine\Player;

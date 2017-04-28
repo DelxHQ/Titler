@@ -46,13 +46,13 @@ class Main extends PluginBase implements Listener{
 	
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
-		$task = new \Niekert\Titler\SendTitle($this, $event->getPlayer(), str_replace(array('{player}', '{world}'), array($event->getPlayer()->getName(), $event->getPlayer()->getLevel()->getName()), $this->JoinTitle), str_replace(array('{player}', '{world}'), array($event->getPlayer()->getName(), $event->getPlayer()->getLevel()->getName()), $this->JoinSubtitle), $this->Fadein, $this->Duration, $this->Fadeout);
+		$task = new SendTitle($this, $event->getPlayer(), str_replace(array('{player}', '{world}'), array($event->getPlayer()->getName(), $event->getPlayer()->getLevel()->getName()), $this->JoinTitle), str_replace(array('{player}', '{world}'), array($event->getPlayer()->getName(), $event->getPlayer()->getLevel()->getName()), $this->JoinSubtitle), $this->Fadein, $this->Duration, $this->Fadeout);
 		$this->getServer()->getScheduler()->scheduleDelayedTask($task, 20);
 	}
 	
 	public function onWorldChange(EntityLevelChangeEvent $event){
 		$player = $event->getEntity();
-		$task = new \Niekert\Titler\SendTitle($this, $event->getEntity(), str_replace(array('{player}', '{world}'), array($event->getEntity()->getName(), $event->getEntity()->getLevel()->getName()), $this->WorldTitle), str_replace(array('{player}', '{world}'), array($event->getEntity()->getName(), $event->getEntity()->getLevel()->getName()), $this->WorldSubtitle), $this->Fadein, $this->Duration, $this->Fadeout);
+		$task = new SendTitle($this, $event->getEntity(), str_replace(array('{player}', '{world}'), array($event->getEntity()->getName(), $event->getEntity()->getLevel()->getName()), $this->WorldTitle), str_replace(array('{player}', '{world}'), array($event->getEntity()->getName(), $event->getEntity()->getLevel()->getName()), $this->WorldSubtitle), $this->Fadein, $this->Duration, $this->Fadeout);
 		$this->getServer()->getScheduler()->scheduleDelayedTask($task, 20);
 	}
 }
