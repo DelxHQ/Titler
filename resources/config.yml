@@ -7,6 +7,6 @@ JoinTitle: "" #Title when player joins. {player} and {world} can be used. Only v
 JoinSubtitle: "" #Subtitle when player joins. {player} and {world} can be used. Only visible for the player self.
 JoinTitle: "" #Title when player goes to another world. {player} and {world} can be used. Only visible for the player self.
 JoinSubtitle: "" #Subtitle when player goes to another world. {player} and {world} can be used. Only visible for the player self.
-Fadein: "" #The fade-in time in seconds
-Duration: "" #Duration of Title in seconds
-Fadeout: "" #The fade-out time in seconds
+Fadein: -1 #The fade-in time in seconds. Set to -1 to use client default.
+Duration: -1 #Duration of Title in seconds. Set to -1 to use client default.
+Fadeout: -1 #The fade-out time in seconds. Set to -1 to use client default.
