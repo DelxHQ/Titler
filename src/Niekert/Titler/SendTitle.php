@@ -19,11 +19,11 @@ class SendTitle extends PluginTask {
 		
 	public function onRun($tick){
 		$player = $this->player;
-		if(method_exists(\pocketmine\Player, "sendTitle")){
+		if(method_exists($player, "sendTitle")){
 			$player->sendTitle($this->title, $this->subtitle, $this->fadein, $this->duration, $this->fadeout);
 			return;
 		}
-		elseif(function_exists(\pocketmine\Player, "addTitle")){
+		elseif(function_exists($player, "addTitle")){
 			$player->addTitle($this->title, $this->subtitle, $this->fadein, $this->duration, $this->fadeout);
 		}
 	}
