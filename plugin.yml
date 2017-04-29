@@ -2,7 +2,6 @@ name: Titler
 author: Niekert
 version: "0.1.0"
 api:
-- 2.0.0
 - 3.0.0
 - 3.0.0-ALPHA1
 - 3.0.0-ALPHA2

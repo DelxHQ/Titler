@@ -4,15 +4,10 @@ namespace Niekert\Titler;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
-use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\Player;
-use pocketmine\entity\Human;
-use pocketmine\Server;
 use pocketmine\event\Listener;
-use pocketmine\network\protocol\SetTitlePacket;
-use pocketmine\level\Position;
-use pocketmine\level\Level;
 use pocketmine\event\entity\EntityLevelChangeEvent;
+use pocketmine\event\player\PlayerJoinEvent;
 use Niekert\Titler\SendTitle;
 
 class Main extends PluginBase implements Listener{
