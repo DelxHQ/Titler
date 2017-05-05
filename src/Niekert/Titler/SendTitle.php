@@ -23,7 +23,7 @@ class SendTitle extends PluginTask {
 			$player->sendTitle($this->title, $this->subtitle, $this->fadein, $this->duration, $this->fadeout);
 			return;
 		}
-		elseif(_exists($player, "addTitle")){
+		elseif(method_exists($player, "addTitle")){
 			$player->addTitle($this->title, $this->subtitle, $this->fadein, $this->duration, $this->fadeout);
 		}
 	}
